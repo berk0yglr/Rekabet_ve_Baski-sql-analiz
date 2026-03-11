@@ -1,6 +1,6 @@
 Use Students
 
---Burada Çalışma ortamının ev baskısına etkisini incelemek için bu kodu yazdım 
+--Burada Ã‡alÃ½Ã¾ma ortamÃ½nÃ½n ev baskÃ½sÃ½na etkisini incelemek iÃ§in bu kodu yazdÃ½m 
 SELECT 
     Study_Environment,
     COUNT(*) AS Ogrenci_Sayisi,
@@ -11,16 +11,16 @@ WHERE Study_Environment IS NOT NULL
 GROUP BY Study_Environment
 ORDER BY Ort_Ev_Baskisi DESC;
 
--- Burada ise case when kulnarak kategori oluşturdum ve risk gruplarını sınıflandırdım
+-- Burada ise case when kulnarak kategori oluÃ¾turdum ve risk gruplarÃ½nÃ½ sÃ½nÃ½flandÃ½rdÃ½m
 SELECT 
     Your_Academic_Stage,
     Study_Environment,
     Peer_pressure,
     Academic_pressure_from_your_home,
     CASE 
-        WHEN Peer_pressure + Academic_pressure_from_your_home >= 8 THEN 'Çok Yüksek Risk'
+        WHEN Peer_pressure + Academic_pressure_from_your_home >= 8 THEN 'Ã‡ok YÃ¼ksek Risk'
         WHEN Peer_pressure + Academic_pressure_from_your_home >= 5 THEN 'Orta Risk'
-        ELSE 'Düşük Risk'
+        ELSE 'DÃ¼Ã¾Ã¼k Risk'
     END AS Mental_Saglik_Durumu
 FROM dbo.[academic Stress level - maintainance 1]
 ORDER BY Peer_pressure DESC;
@@ -28,7 +28,7 @@ ORDER BY Peer_pressure DESC;
 
 
 
--- Burada ise kötü bir alışkanlığı olmayan öğrencilerin bu durumla başa çıkma yöntemlerini inceledim
+-- Burada ise kÃ¶tÃ¼ bir alÃ½Ã¾kanlÃ½Ã°Ã½ olmayan Ã¶Ã°rencilerin bu durumla baÃ¾a Ã§Ã½kma yÃ¶ntemlerini inceledim
 SELECT 
     What_coping_strategy_you_use_as_a_student AS Strateji,
     COUNT(*) AS Kisi_Sayisi
@@ -39,7 +39,7 @@ ORDER BY Kisi_Sayisi DESC;
 
 
 
--- burada ise akademik rekabeti yüksek görenlerin ev baskısının ortalamasını aldım
+-- burada ise akademik rekabeti yÃ¼ksek gÃ¶renlerin ev baskÃ½sÃ½nÃ½n ortalamasÃ½nÃ½ aldÃ½m
 SELECT 
     What_would_you_rate_the_academic_competition_in_your_student_life AS Rekabet_Algisi,
     AVG(Academic_pressure_from_your_home) AS Ev_Baskisi_Ortalamasi
